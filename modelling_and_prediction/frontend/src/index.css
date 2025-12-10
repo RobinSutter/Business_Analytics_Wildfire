@@ -1,0 +1,360 @@
+@import 'leaflet/dist/leaflet.css';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Fire-themed color palette */
+    --background: 210 17% 98%;
+    --foreground: 210 29% 24%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 29% 24%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 29% 24%;
+
+    /* Fire Red - Primary */
+    --primary: 6 78% 57%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Amber - Secondary */
+    --secondary: 37 90% 51%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 15% 45%;
+
+    /* Sky Blue - Accent/Info */
+    --accent: 204 70% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Danger Orange */
+    --destructive: 28 80% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Success Green */
+    --success: 145 63% 49%;
+    --success-foreground: 0 0% 100%;
+
+    /* Warning Amber */
+    --warning: 37 90% 51%;
+    --warning-foreground: 210 29% 24%;
+
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 6 78% 57%;
+
+    --radius: 0.75rem;
+
+    /* Fire-specific colors */
+    --fire-red: 6 78% 57%;
+    --fire-orange: 28 80% 52%;
+    --fire-amber: 37 90% 51%;
+    --fire-yellow: 45 100% 60%;
+    --charcoal: 210 29% 24%;
+    --smoke: 210 10% 60%;
+
+    /* Risk level colors */
+    --risk-very-low: 145 63% 49%;
+    --risk-low: 204 70% 53%;
+    --risk-moderate: 37 90% 51%;
+    --risk-high: 28 80% 52%;
+    --risk-critical: 6 78% 57%;
+
+    /* Glassmorphism */
+    --glass-bg: 0 0% 100% / 0.7;
+    --glass-border: 0 0% 100% / 0.3;
+    --glass-shadow: 210 29% 24% / 0.1;
+
+    /* Gradients */
+    --gradient-fire: linear-gradient(135deg, hsl(6, 78%, 57%), hsl(28, 80%, 52%), hsl(37, 90%, 51%));
+    --gradient-heat: linear-gradient(180deg, hsl(6, 78%, 57%), hsl(37, 90%, 51%), hsl(45, 100%, 60%));
+    --gradient-card: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(210, 17%, 98%));
+    --gradient-header: linear-gradient(90deg, hsl(210, 29%, 24%), hsl(210, 29%, 30%));
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 28% 10%;
+    --foreground: 210 20% 98%;
+
+    --card: 215 25% 14%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 215 25% 14%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 6 78% 57%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 37 90% 51%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 215 20% 20%;
+    --muted-foreground: 210 15% 65%;
+
+    --accent: 204 70% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 28 80% 52%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 145 63% 49%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 37 90% 51%;
+    --warning-foreground: 0 0% 100%;
+
+    --border: 215 20% 22%;
+    --input: 215 20% 22%;
+    --ring: 6 78% 57%;
+
+    --glass-bg: 215 25% 14% / 0.8;
+    --glass-border: 0 0% 100% / 0.1;
+    --glass-shadow: 0 0% 0% / 0.3;
+
+    --gradient-card: linear-gradient(135deg, hsl(215, 25%, 16%), hsl(215, 25%, 12%));
+    --gradient-header: linear-gradient(90deg, hsl(6, 78%, 57%), hsl(28, 80%, 52%));
+
+    --sidebar-background: 215 28% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 215 20% 20%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 215 20% 22%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  /* Glassmorphism card */
+  .glass-card {
+    @apply bg-card/70 backdrop-blur-xl border border-border/50 shadow-xl;
+    background: linear-gradient(135deg, hsl(var(--card) / 0.9), hsl(var(--card) / 0.7));
+  }
+
+  /* Fire gradient text */
+  .fire-gradient-text {
+    background: var(--gradient-fire);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Pulsing animation for critical risk */
+  .pulse-critical {
+    animation: pulse-critical 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  /* Glow effects */
+  .glow-fire {
+    box-shadow: 0 0 20px hsl(var(--fire-red) / 0.4), 0 0 40px hsl(var(--fire-orange) / 0.2);
+  }
+
+  .glow-success {
+    box-shadow: 0 0 20px hsl(var(--success) / 0.4);
+  }
+
+  .glow-warning {
+    box-shadow: 0 0 20px hsl(var(--warning) / 0.4);
+  }
+
+  /* Risk level badges */
+  .risk-badge {
+    @apply px-3 py-1 rounded-full text-sm font-semibold uppercase tracking-wide;
+  }
+
+  .risk-very-low {
+    @apply bg-success/20 text-success border border-success/30;
+  }
+
+  .risk-low {
+    @apply bg-accent/20 text-accent border border-accent/30;
+  }
+
+  .risk-moderate {
+    @apply bg-warning/20 text-warning border border-warning/30;
+  }
+
+  .risk-high {
+    @apply bg-destructive/20 text-destructive border border-destructive/30;
+  }
+
+  .risk-critical {
+    @apply bg-primary/20 text-primary border border-primary/30;
+  }
+
+  /* Metric card */
+  .metric-card {
+    @apply glass-card rounded-xl p-6 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl;
+  }
+
+  /* Emergency header */
+  .emergency-header {
+    background: var(--gradient-header);
+    @apply text-primary-foreground;
+  }
+}
+
+@layer utilities {
+  /* Custom scrollbar */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    @apply bg-muted rounded-full;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full hover:bg-muted-foreground/50;
+  }
+
+  /* Fire spread animation */
+  .fire-spread-animation {
+    animation: fire-spread 3s ease-out forwards;
+  }
+
+  /* Fade in up animation */
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.4s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scale-in 0.3s ease-out;
+  }
+
+  .animate-slide-in-right {
+    animation: slide-in-right 0.4s ease-out;
+  }
+
+  /* Stagger children */
+  .stagger-children > * {
+    animation: fade-in-up 0.5s ease-out both;
+  }
+
+  .stagger-children > *:nth-child(1) { animation-delay: 0.1s; }
+  .stagger-children > *:nth-child(2) { animation-delay: 0.2s; }
+  .stagger-children > *:nth-child(3) { animation-delay: 0.3s; }
+  .stagger-children > *:nth-child(4) { animation-delay: 0.4s; }
+  .stagger-children > *:nth-child(5) { animation-delay: 0.5s; }
+}
+
+@keyframes pulse-critical {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 20px hsl(var(--fire-red) / 0.6);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 40px hsl(var(--fire-red) / 0.8), 0 0 60px hsl(var(--fire-orange) / 0.4);
+  }
+}
+
+@keyframes fire-spread {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes gauge-fill {
+  from {
+    stroke-dashoffset: 283;
+  }
+}
+
+/* Map styles */
+.mapboxgl-popup-content {
+  @apply bg-card text-card-foreground rounded-lg shadow-xl border border-border p-3;
+}
+
+.mapboxgl-popup-close-button {
+  @apply text-foreground hover:text-primary;
+}

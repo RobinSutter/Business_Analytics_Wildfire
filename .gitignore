@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+
+# Environments
+.venv/
+.env
+.env.*
+.python-version
+
+# uv
+# Keep uv.lock tracked for applications
+.uv/
+
+# Packaging / build
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Testing / coverage / caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+coverage.xml
+htmlcov/
+.cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+*.log
+
+# Data artifacts (keep folders, ignore contents)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Large CSV files (over 100MB - GitHub limit)
+**/fires_with_temperature.csv
+**/*_with_temperature.csv
+modelling_and_prediction/data/processed/US_COUNTIES.csv
+
+# Large model files (exceed GitHub 100MB limit)
+*.joblib
+**/models/*.joblib
+**/models/**/*.joblib
+
+# Large geospatial auxiliaries
+*.aux.xml
+
+# Generated fire maps (temporary HTML files)
+modelling_and_prediction/frontend/maps/*.html
+!modelling_and_prediction/frontend/maps/.gitkeep

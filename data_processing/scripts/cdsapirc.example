@@ -1,0 +1,7 @@
+"""
+Setup CDS API credentials for downloading CMIP6 data.
+
+This file should be copied to: ~/.cdsapirc
+"""
+url: https://cds.climate.copernicus.eu/api
+key: 3c0feaf1-f3eb-477e-a577-63445b16b883
