@@ -31,7 +31,7 @@ const Webcam = () => {
     // Fetch stats immediately
     const fetchStats = async () => {
       try {
-        const response = await fetch('http://10.255.136.227:8001/stats');
+        const response = await fetch('http://localhost:8001/stats');
         if (response.ok) {
           const data = await response.json();
           console.log('Stats received:', data);
@@ -123,7 +123,7 @@ const Webcam = () => {
               </CardHeader>
               <CardContent className="p-0">
                 <img
-                  src="http://10.255.136.227:8001/video"
+                  src="http://localhost:8001/video"
                   alt="Live video stream"
                   className="w-full h-auto"
                 />
