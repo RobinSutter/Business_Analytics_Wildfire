@@ -4,6 +4,8 @@
 
 This project develops advanced machine learning models to predict wildfire size using historical fire data and environmental variables. Through systematic feature engineering, model optimization, and a dual-model architecture combining regression and classification, we achieve robust predictions that support emergency response decision-making. The work represents a significant advancement in wildfire risk assessment, moving from simple occurrence prediction to actionable size and risk categorization.
 
+For detailed business case discussion, value proposition, and comprehensive project overview, see [About This Project](ABOUT_THIS_PROJECT.md).
+
 **Key Achievements:**
 - Trained ensemble models on 1.88 million historical wildfire records
 - Achieved substantial improvements in predictive performance through systematic optimization
